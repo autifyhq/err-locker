@@ -79,7 +79,7 @@ class Locker(BotPlugin):
                     del locks[what]
                     self['locks'] = locks
                     self.send(
-                        identifier=self.build_identifier(lock['by']),
+                        identifier=self.build_identifier("@" + lock['by']),
                         text="{who} just force unlocked {what}".format(
                             who=by, what=what
                         )
