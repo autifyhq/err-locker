@@ -40,7 +40,7 @@ class Locker(BotPlugin):
                 if locks[what]['by'] == by:
                     return "You already locked this"
                 else:
-                    return "{what} is already locked by {who} and must be unlocked first".format(
+                    return "{what} is already locked by <@{who}> and must be unlocked first".format(
                         what=what,
                         who=locks[what]['by']
                     )
@@ -71,7 +71,7 @@ class Locker(BotPlugin):
                 return "{} unlocked".format(what)
             else:
                 if not force:
-                    return "{what} was locked by {who}, not unlocking without --force".format(
+                    return "{what} was locked by <@{who}>, not unlocking without --force".format(
                         what=what,
                         who=lock['by']
                     )
@@ -93,7 +93,7 @@ class Locker(BotPlugin):
                 return
 
             for lock, details in self['locks'].items():
-                yield "{0} locked by {1[by]} on {1[at]} ({1[message]})".format(
+                yield "{0} locked by <@{1[by]}> on {1[at]} ({1[message]})".format(
                     lock,
                     details
                 )
