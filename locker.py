@@ -78,13 +78,9 @@ class Locker(BotPlugin):
                 else:
                     del locks[what]
                     self['locks'] = locks
-                    self.send(
-                        identifier=self.build_identifier("<@" + lock['by'] + ">"),
-                        text="{who} just force unlocked {what}".format(
-                            who=by, what=what
-                        )
+                    return "<@{who}>: <@{by}> just force unlocked {what}".format(
+                        who=lock['by'], by=by, what=what
                     )
-                    return "{} unlocked".format(what)
 
     @botcmd
     def locks(self, message, args):
